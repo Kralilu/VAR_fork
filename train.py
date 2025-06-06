@@ -316,6 +316,8 @@ def main_training(data_path: str):
             trainer,
         )
 
+        print("One epoch finished, stats:", stats)
+
         L_mean, L_tail, acc_mean, acc_tail, grad_norm = (
             stats["Lm"],
             stats["Lt"],
