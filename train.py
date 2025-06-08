@@ -115,9 +115,9 @@ def build_everything(args: arg_util.Args):
     from utils.lr_control import filter_params
 
     vae_local, var_wo_ddp = build_vae_var(
-        V=4096,
-        Cvae=32,
-        ch=160,
+        V=1024,
+        Cvae=16,
+        ch=64,
         share_quant_resi=4,  # hard-coded VQVAE hyperparameters
         device=dist.get_device(),
         patch_nums=args.patch_nums,
