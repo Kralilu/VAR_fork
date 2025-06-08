@@ -85,7 +85,7 @@ class Args(Tap):
     )
 
     # data
-    pn: str = "1_2_3_4_5_6_8_10_13_16"
+    pn: str = "1_2_4_8_16"
     patch_size: int = 16
     patch_nums: tuple = (
         None  # [automatically set; don't specify this] = tuple(map(int, args.pn.replace('-', '_').split('_')))
