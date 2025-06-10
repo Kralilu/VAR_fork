@@ -307,7 +307,7 @@ class Args(Tap):
         return f"{{\n{s}\n}}\n"
 
 
-def init_dist_and_get_args(datapath):
+def init_dist_and_get_args():
     for i in range(len(sys.argv)):
         if sys.argv[i].startswith("--local-rank=") or sys.argv[i].startswith(
             "--local_rank="
@@ -324,7 +324,6 @@ def init_dist_and_get_args(datapath):
         args.afuse = False
         args.pg = 0.8
         args.pg0 = 1
-    args.data_path = datapath
 
     # warn args.extra_args
     if len(args.extra_args) > 0:

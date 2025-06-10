@@ -16,7 +16,7 @@ from utils.data_sampler import DistInfiniteBatchSampler, EvalDistributedSampler
 from utils.misc import auto_resume
 
 
-def build_everything(args: arg_util.Args):
+def build_everything(args: arg_util.Args):# -> tuple[TensorboardLogger, VARTrainer, int, int, int, _Base...:
     # resume
     auto_resume_info, start_ep, start_it, trainer_state, args_state = auto_resume(
         args, "ar-ckpt*.pth"
@@ -273,8 +273,8 @@ def build_everything(args: arg_util.Args):
     return (tb_lg, trainer, start_ep, start_it, iters_train, ld_train, ld_val)
 
 
-def main_training(data_path: str):
-    args: arg_util.Args = arg_util.init_dist_and_get_args(data_path)
+def main_training():
+    args: arg_util.Args = arg_util.init_dist_and_get_args()
     if args.local_debug:
         torch.autograd.set_detect_anomaly(True)
 
@@ -315,8 +315,6 @@ def main_training(data_path: str):
             iters_train,
             trainer,
         )
-
-        print("One epoch finished, stats:", stats)
 
         L_mean, L_tail, acc_mean, acc_tail, grad_norm = (
             stats["Lm"],
