@@ -162,7 +162,7 @@ class Args(Tap):
     log_txt_path: str = "..."  # [automatically set; don't specify this]
     last_ckpt_path: str = "..."  # [automatically set; don't specify this]
 
-    tf32: bool = True  # whether to use TensorFloat32
+    tf32: bool = False  # whether to use TensorFloat32
     device: str = "cpu"  # [automatically set; don't specify this]
     seed: int = None  # seed
 
