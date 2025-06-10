@@ -343,7 +343,7 @@ def main_training():
         AR_ep_loss = dict(
             L_mean=L_mean, L_tail=L_tail, acc_mean=acc_mean, acc_tail=acc_tail
         )
-        is_val_and_also_saving = (ep + 1) % 10 == 0 or (ep + 1) == args.ep
+        is_val_and_also_saving = (ep + 1) % 5 == 0 or (ep + 1) == args.ep
         if is_val_and_also_saving:
             val_loss_mean, val_loss_tail, val_acc_mean, val_acc_tail, tot, cost = (
                 trainer.eval_ep(ld_val)
