@@ -85,8 +85,8 @@ class Args(Tap):
     )
 
     # data
-    pn: str = "1_2_4_8" #64x64 images
-    patch_size: int = 8
+    pn: str = "1_2_4_8"  # 64x64 images
+    patch_size: int = 16
     patch_nums: tuple = (
         None  # [automatically set; don't specify this] = tuple(map(int, args.pn.replace('-', '_').split('_')))
     )
