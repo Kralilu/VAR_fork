@@ -57,7 +57,7 @@ class Args(Tap):
     tclip: float = 2.0  # <=0 for not using grad clip
     ls: float = 0.0  # label smooth
 
-    bs: int = 256  # global batch size
+    bs: int = 8  # global batch size
     batch_size: int = (
         0  # [automatically set; don't specify this] batch size per GPU = round(args.bs / args.ac / dist.get_world_size() / 8) * 8
     )
@@ -85,8 +85,8 @@ class Args(Tap):
     )
 
     # data
-    pn: str = "1_2_4_8_16"
-    patch_size: int = 16
+    pn: str = "1_2_4_8" #64x64 images
+    patch_size: int = 8
     patch_nums: tuple = (
         None  # [automatically set; don't specify this] = tuple(map(int, args.pn.replace('-', '_').split('_')))
     )
